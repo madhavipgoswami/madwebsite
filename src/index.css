@@ -582,7 +582,7 @@ section {
 .project-details-btn {
   width: 100%;
   padding: 10px 20px;
-  background: var(--primary-color);
+  background: #1f2937;
   color: white;
   border: none;
   border-radius: 8px;
@@ -597,7 +597,7 @@ section {
 }
 
 .project-details-btn:hover {
-  background: var(--primary-dark);
+  background: #111827;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
