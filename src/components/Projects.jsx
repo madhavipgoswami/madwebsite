@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaRobot, FaCloud, FaBriefcase, FaStar, FaChartBar, FaHandshake } from 'react-icons/fa'
 
 const Projects = () => {
   const [filter, setFilter] = useState('all')
@@ -10,7 +11,7 @@ const Projects = () => {
       title: 'GenAI & Multi-Agent Transformation',
       description:
         'Led secure GenAI and multi-agent system adoption at Microsoft, driving 116% YoY growth in Azure, M365 Copilot, and GenAI adoption across global Financial Services clients.',
-      image: '🤖',
+      icon: FaRobot,
       tags: ['Azure OpenAI', 'M365 Copilot', 'GenAI Strategy', 'Multi-Agent Systems'],
       category: 'transformation',
       link: '#',
@@ -21,7 +22,7 @@ const Projects = () => {
       title: 'Cloud Migration & Modernization',
       description:
         'Achieved 118% YoY cloud adoption growth at AWS, leading ML beta programs and authoring internal FinServ playbooks for enterprise transformations.',
-      image: '☁️',
+      icon: FaCloud,
       tags: ['AWS', 'Cloud Migration', 'ML Programs', 'Enterprise Strategy'],
       category: 'cloud',
       link: '#',
@@ -32,7 +33,7 @@ const Projects = () => {
       title: 'Prime Brokerage Modernization',
       description:
         'Delivered 75% cost savings through Prime Brokerage modernization at Deutsche Bank, managing global teams and complex enterprise-scale implementations.',
-      image: '💼',
+      icon: FaBriefcase,
       tags: ['Program Leadership', 'Cost Optimization', 'Legacy Modernization', 'Global Delivery'],
       category: 'transformation',
       link: '#',
@@ -43,7 +44,7 @@ const Projects = () => {
       title: 'EmpressaAI - AI Literacy Programs',
       description:
         'Founding member developing global AI literacy programs for women, empowering them to turn insights into income through trusted GPT-based tools.',
-      image: '🌟',
+      icon: FaStar,
       tags: ['AI Education', 'Women Empowerment', 'GPT Tools', 'Global Programs'],
       category: 'leadership',
       link: '#',
@@ -54,7 +55,7 @@ const Projects = () => {
       title: 'Enterprise Tech Migrations',
       description:
         'Executed enterprise tech migrations at Citibank with 20% productivity lift, leading full-stack risk and finance system revamps across trading entities.',
-      image: '📊',
+      icon: FaChartBar,
       tags: ['Enterprise Migration', 'Risk Systems', 'Finance Systems', 'Productivity'],
       category: 'transformation',
       link: '#',
@@ -65,7 +66,7 @@ const Projects = () => {
       title: 'GTM Strategy & Partner Ecosystem',
       description:
         'Built Capital Markets-focused GenAI solution playbooks, evaluated partner build/buy motions, and scaled delivery through ecosystem partnerships.',
-      image: '🤝',
+      icon: FaHandshake,
       tags: ['GTM Strategy', 'Partner Ecosystem', 'Solution Playbooks', 'Market Activation'],
       category: 'leadership',
       link: '#',
@@ -120,7 +121,9 @@ const Projects = () => {
                 <div className="project-card">
                   {/* Front of card */}
                   <div className="project-card-front">
-                    <div className="project-image">{project.image}</div>
+                    <div className="project-image">
+                      <project.icon className="project-icon" />
+                    </div>
                     <div className="project-content">
                       <h3 className="project-title">{project.title}</h3>
                       <p className="project-description">{project.description}</p>
