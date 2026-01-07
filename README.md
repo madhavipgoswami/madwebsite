@@ -1,4 +1,4 @@
-# Madhavi's Personal Website
+# Madhavi Goswami, CFA - Personal Website
 
 A modern, dynamic personal website built with React and Vite, designed to showcase your portfolio, skills, and projects.
 
