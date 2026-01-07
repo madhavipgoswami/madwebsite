@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 const Projects = () => {
   const [filter, setFilter] = useState('all')
+  const [flippedCards, setFlippedCards] = useState(new Set())
 
   const projects = [
     {
@@ -78,6 +79,18 @@ const Projects = () => {
       ? projects
       : projects.filter((project) => project.category === filter)
 
+  const toggleCard = (projectId) => {
+    setFlippedCards((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(projectId)) {
+        newSet.delete(projectId)
+      } else {
+        newSet.add(projectId)
+      }
+      return newSet
+    })
+  }
+
   return (
     <section id="projects" className="projects">
       <div className="container">
@@ -97,40 +110,58 @@ const Projects = () => {
           ))}
         </div>
         <div className="projects-grid">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-image">{project.image}</div>
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="project-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  <a
-                    href={project.link}
-                    className="project-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.github}
-                    className="project-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
+          {filteredProjects.map((project) => {
+            const isFlipped = flippedCards.has(project.id)
+            return (
+              <div
+                key={project.id}
+                className={`project-card-container ${isFlipped ? 'flipped' : ''}`}
+              >
+                <div className="project-card">
+                  {/* Front of card */}
+                  <div className="project-card-front">
+                    <div className="project-image">{project.image}</div>
+                    <div className="project-content">
+                      <h3 className="project-title">{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
+                      <div className="project-tags">
+                        {project.tags.map((tag, index) => (
+                          <span key={index} className="project-tag">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <button
+                        className="project-details-btn"
+                        onClick={() => toggleCard(project.id)}
+                      >
+                        See More
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Back of card */}
+                  <div className="project-card-back">
+                    <div className="project-content">
+                      <h3 className="project-title">{project.title}</h3>
+                      <div className="project-deep-dive">
+                        {/* Deep dive content will go here */}
+                        <p className="deep-dive-placeholder">
+                          Deep dive content coming soon...
+                        </p>
+                      </div>
+                      <button
+                        className="project-details-btn"
+                        onClick={() => toggleCard(project.id)}
+                      >
+                        Back
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
