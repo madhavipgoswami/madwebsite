@@ -258,13 +258,51 @@ const Journey = () => {
               const IconComponent = getTravelIcon(item)
               const isActive = index === activeIndex
               const countryColor = getCountryColor(item.country)
+              const prevItem = index > 0 ? journeyItems[index - 1] : null
+              const showTravelAnimation = prevItem && prevItem.location !== item.location
 
               return (
-                <div
-                  key={item.id}
-                  ref={(el) => (journeyItemsRef.current[index] = el)}
-                  className={`journey-item ${isActive ? 'active' : ''} ${item.type}`}
-                >
+                <>
+                  {/* Travel Animation between locations */}
+                  {showTravelAnimation && (
+                    <div className={`travel-animation ${isActive ? 'active' : ''}`}>
+                      <div className="travel-path">
+                        {prevItem.location.includes('Mumbai') && item.location.includes('Pune') && (
+                          <div className="travel-bus">
+                            <div className="bus-icon">🚌</div>
+                            <div className="travel-person">🚶‍♀️</div>
+                          </div>
+                        )}
+                        {prevItem.location.includes('Pune') && item.location.includes('Toronto') && (
+                          <div className="travel-plane">
+                            <div className="plane-icon">✈️</div>
+                            <div className="travel-person">👩</div>
+                          </div>
+                        )}
+                        {prevItem.location.includes('Toronto') && item.location.includes('New Jersey') && (
+                          <div className="travel-car">
+                            <div className="car-icon">🚗</div>
+                            <div className="travel-person">👩</div>
+                          </div>
+                        )}
+                        {prevItem.country !== item.country && !item.location.includes('Pune') && !item.location.includes('Toronto') && (
+                          <div className="travel-walk">
+                            <div className="walking-person">🚶‍♀️</div>
+                            <div className="walking-trail"></div>
+                          </div>
+                        )}
+                      </div>
+                      <div className="travel-route">
+                        {prevItem.location} → {item.location}
+                      </div>
+                    </div>
+                  )}
+
+                  <div
+                    key={item.id}
+                    ref={(el) => (journeyItemsRef.current[index] = el)}
+                    className={`journey-item ${isActive ? 'active' : ''} ${item.type}`}
+                  >
                   {/* Timeline Dot */}
                   <div className="timeline-dot-container">
                     <div
