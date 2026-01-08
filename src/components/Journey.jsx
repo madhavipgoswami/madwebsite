@@ -278,7 +278,7 @@ const Journey = () => {
                         </div>
                       )}
                       
-                      {/* Curved travel path with animated woman */}
+                      {/* Curved travel path with animated girl */}
                       <div className="travel-path-curved">
                         <svg className="travel-trail-svg" viewBox="0 0 400 100" preserveAspectRatio="none">
                           <path
@@ -291,37 +291,103 @@ const Journey = () => {
                           />
                         </svg>
                         
-                        {/* Footprints along the path */}
-                        <div className="footprints">
-                          <div className="footprint">👣</div>
-                          <div className="footprint">👣</div>
-                          <div className="footprint">👣</div>
-                          <div className="footprint">👣</div>
-                          <div className="footprint">👣</div>
-                        </div>
+                        {/* Footprints for domestic/local travel */}
+                        {prevItem.country === item.country && (
+                          <div className="footprints">
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                            <div className="footprint">👣</div>
+                          </div>
+                        )}
 
-                        {/* Animated woman following the path */}
+                        {/* Animated girl walking for domestic travel */}
                         {prevItem.location.includes('Mumbai') && item.location.includes('Pune') && (
-                          <div className="traveling-woman bus-travel">
-                            <div className="woman-walking">🚶‍♀️</div>
-                            <div className="transport-icon">🚌</div>
+                          <div className="traveling-girl walk-travel">
+                            <svg className="girl-character" viewBox="0 0 100 150" width="60" height="90">
+                              {/* Head */}
+                              <circle cx="50" cy="25" r="15" fill="#fbbf24" stroke="#1f2937" strokeWidth="2"/>
+                              {/* Eye */}
+                              <circle cx="55" cy="23" r="2" fill="#1f2937"/>
+                              {/* Smile */}
+                              <path d="M 45 28 Q 50 32, 55 28" stroke="#1f2937" strokeWidth="2" fill="none"/>
+                              {/* Hair */}
+                              <path d="M 35 25 Q 30 15, 35 10 Q 40 5, 50 8 Q 60 5, 65 10 Q 70 15, 65 25" 
+                                    fill="#6366f1" stroke="#1f2937" strokeWidth="1.5"/>
+                              {/* Body/Top */}
+                              <rect x="40" y="40" width="20" height="25" rx="5" fill="#f97316"/>
+                              {/* Arms */}
+                              <line x1="40" y1="50" x2="30" y2="45" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <line x1="60" y1="50" x2="70" y2="55" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              {/* Hands */}
+                              <circle cx="30" cy="45" r="4" fill="#1f2937"/>
+                              <circle cx="70" cy="55" r="4" fill="#1f2937"/>
+                              {/* Skirt */}
+                              <path d="M 40 65 L 35 85 L 65 85 L 60 65 Z" fill="#fb7185" stroke="#1f2937" strokeWidth="2"/>
+                              {/* Legs */}
+                              <line x1="45" y1="85" x2="42" y2="110" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <line x1="55" y1="85" x2="58" y2="120" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              {/* Feet/Shoes */}
+                              <ellipse cx="42" cy="115" rx="6" ry="4" fill="#6366f1"/>
+                              <ellipse cx="58" cy="125" rx="6" ry="4" fill="#6366f1"/>
+                            </svg>
                           </div>
                         )}
-                        {prevItem.location.includes('Pune') && item.location.includes('Toronto') && (
-                          <div className="traveling-woman plane-travel">
-                            <div className="woman-walking">👩</div>
-                            <div className="transport-icon">✈️</div>
+
+                        {/* Plane for international travel */}
+                        {(prevItem.location.includes('Pune') && item.location.includes('Toronto')) || 
+                         (prevItem.location.includes('Pune') && item.location.includes('New Jersey') && item.title.includes('Husband')) ? (
+                          <div className="traveling-girl plane-travel">
+                            <div className="plane-animation">✈️</div>
+                            <svg className="girl-in-plane" viewBox="0 0 100 100" width="50" height="50">
+                              <circle cx="50" cy="30" r="12" fill="#fbbf24"/>
+                              <circle cx="55" cy="28" r="2" fill="#1f2937"/>
+                              <path d="M 45 32 Q 50 36, 55 32" stroke="#1f2937" strokeWidth="1.5" fill="none"/>
+                              <path d="M 38 30 Q 30 20, 38 15 Q 45 10, 50 12 Q 55 10, 62 15 Q 70 20, 62 30" 
+                                    fill="#6366f1" stroke="#1f2937" strokeWidth="1"/>
+                              <rect x="42" y="42" width="16" height="18" rx="3" fill="#f97316"/>
+                            </svg>
                           </div>
-                        )}
+                        ) : null}
+
+                        {/* Car for road trip */}
                         {prevItem.location.includes('Toronto') && item.location.includes('New Jersey') && (
-                          <div className="traveling-woman car-travel">
-                            <div className="woman-walking">👩</div>
-                            <div className="transport-icon">🚗</div>
+                          <div className="traveling-girl car-travel">
+                            <div className="car-animation">🚗</div>
+                            <svg className="girl-in-car" viewBox="0 0 100 100" width="50" height="50">
+                              <circle cx="50" cy="35" r="10" fill="#fbbf24"/>
+                              <circle cx="53" cy="33" r="1.5" fill="#1f2937"/>
+                              <path d="M 43 37 Q 50 40, 57 37" stroke="#1f2937" strokeWidth="1" fill="none"/>
+                              <path d="M 40 35 Q 30 25, 40 20 Q 45 15, 50 17 Q 55 15, 60 20 Q 70 25, 60 35" 
+                                    fill="#6366f1" stroke="#1f2937" strokeWidth="1"/>
+                              <rect x="42" y="45" width="16" height="15" rx="2" fill="#f97316"/>
+                            </svg>
                           </div>
                         )}
-                        {prevItem.country !== item.country && !item.location.includes('Pune') && !item.location.includes('Toronto') && !item.title.includes('Husband') && (
-                          <div className="traveling-woman walk-travel">
-                            <div className="woman-walking">🚶‍♀️</div>
+
+                        {/* Walking girl for other domestic moves */}
+                        {prevItem.country === item.country && !prevItem.location.includes('Mumbai') && !item.location.includes('Pune') && (
+                          <div className="traveling-girl walk-travel">
+                            <svg className="girl-character" viewBox="0 0 100 150" width="60" height="90">
+                              <circle cx="50" cy="25" r="15" fill="#fbbf24" stroke="#1f2937" strokeWidth="2"/>
+                              <circle cx="55" cy="23" r="2" fill="#1f2937"/>
+                              <path d="M 45 28 Q 50 32, 55 28" stroke="#1f2937" strokeWidth="2" fill="none"/>
+                              <path d="M 35 25 Q 30 15, 35 10 Q 40 5, 50 8 Q 60 5, 65 10 Q 70 15, 65 25" 
+                                    fill="#6366f1" stroke="#1f2937" strokeWidth="1.5"/>
+                              <rect x="40" y="40" width="20" height="25" rx="5" fill="#f97316"/>
+                              <line x1="40" y1="50" x2="30" y2="45" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <line x1="60" y1="50" x2="70" y2="55" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <circle cx="30" cy="45" r="4" fill="#1f2937"/>
+                              <circle cx="70" cy="55" r="4" fill="#1f2937"/>
+                              <path d="M 40 65 L 35 85 L 65 85 L 60 65 Z" fill="#fb7185" stroke="#1f2937" strokeWidth="2"/>
+                              <line x1="45" y1="85" x2="42" y2="110" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <line x1="55" y1="85" x2="58" y2="120" stroke="#1f2937" strokeWidth="3" strokeLinecap="round"/>
+                              <ellipse cx="42" cy="115" rx="6" ry="4" fill="#6366f1"/>
+                              <ellipse cx="58" cy="125" rx="6" ry="4" fill="#6366f1"/>
+                            </svg>
                           </div>
                         )}
                       </div>
