@@ -9,10 +9,10 @@ const Journey = () => {
   const journeyItems = [
     {
       id: 1,
-      year: '1996-2000',
+      year: 'Early Years',
       location: 'Mumbai, India',
       title: 'Born & Raised',
-      description: 'Born in Mumbai, India. Completed Bachelor of Commerce in Accounting/Economics from University of Mumbai.',
+      description: 'Born in Mumbai, India. A gymnast, classical singer, and dancer. Completed Bachelor of Commerce in Accounting/Economics from University of Mumbai.',
       icon: FaMapMarkerAlt,
       type: 'location',
       country: 'India',

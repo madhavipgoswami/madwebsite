@@ -860,6 +860,187 @@ section {
   border-left: 4px solid #ef4444;
 }
 
+/* Travel Animations */
+.travel-animation {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.travel-animation.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.travel-path {
+  position: relative;
+  height: 80px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border-radius: 8px;
+  border: 2px dashed rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travel-bus {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bus-icon {
+  font-size: 3rem;
+  animation: moveRight 3s ease-in-out infinite;
+  position: relative;
+}
+
+.travel-person {
+  position: absolute;
+  font-size: 2rem;
+  animation: moveRight 3s ease-in-out infinite;
+  animation-delay: 0.2s;
+  opacity: 0.8;
+}
+
+.travel-plane {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plane-icon {
+  font-size: 3rem;
+  animation: flyAcross 4s ease-in-out infinite;
+  position: relative;
+}
+
+.travel-car {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-icon {
+  font-size: 3rem;
+  animation: driveAcross 3.5s ease-in-out infinite;
+  position: relative;
+}
+
+.travel-walk {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walking-person {
+  font-size: 2.5rem;
+  animation: walkAlong 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.walking-trail {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #6366f1 0px,
+    #6366f1 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.travel-route {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translateX(-150%) translateY(-20px) rotate(-10deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(150%) translateY(20px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes driveAcross {
+  0% {
+    transform: translateX(-100%) scaleX(1);
+  }
+  50% {
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    transform: translateX(100%) scaleX(-1);
+  }
+}
+
+@keyframes walkAlong {
+  0% {
+    transform: translateX(-100%);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(50%) translateY(-5px);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Blog Section */
 .blog {
   background: var(--bg-secondary);
