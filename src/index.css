@@ -867,7 +867,7 @@ section {
   background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
   border-radius: 12px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
@@ -878,100 +878,149 @@ section {
   transform: translateY(0);
 }
 
-.travel-path {
-  position: relative;
-  height: 80px;
-  margin: 1rem 0;
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-  border-radius: 8px;
-  border: 2px dashed rgba(99, 102, 241, 0.3);
+/* Goodbye Scene */
+.goodbye-scene {
+  text-align: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+}
+
+.goodbye-characters {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.travel-bus {
+.woman-character,
+.man-character {
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.man-character {
+  animation-delay: 0.3s;
+}
+
+.kiss-animation {
+  font-size: 2rem;
+  animation: kissPulse 1.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.goodbye-text {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Curved Travel Path */
+.travel-path-curved {
   position: relative;
+  height: 150px;
+  margin: 2rem 0;
+  overflow: visible;
+}
+
+.travel-trail-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1;
 }
 
-.bus-icon {
-  font-size: 3rem;
-  animation: moveRight 3s ease-in-out infinite;
-  position: relative;
+.trail-path {
+  animation: trailGlow 2s ease-in-out infinite;
 }
 
-.travel-person {
+/* Footprints along the curved path */
+.footprints {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.footprint {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.4;
+  animation: footprintFade 3s ease-in-out infinite;
+}
+
+.footprint:nth-child(1) {
+  left: 10%;
+  top: 60%;
+  animation-delay: 0s;
+}
+
+.footprint:nth-child(2) {
+  left: 25%;
+  top: 40%;
+  animation-delay: 0.5s;
+}
+
+.footprint:nth-child(3) {
+  left: 45%;
+  top: 35%;
+  animation-delay: 1s;
+}
+
+.footprint:nth-child(4) {
+  left: 65%;
+  top: 38%;
+  animation-delay: 1.5s;
+}
+
+.footprint:nth-child(5) {
+  left: 85%;
+  top: 42%;
+  animation-delay: 2s;
+}
+
+/* Traveling woman following curved path */
+.traveling-woman {
+  position: absolute;
+  z-index: 10;
+  animation: followCurvedPath 4s ease-in-out infinite;
+}
+
+.woman-walking {
+  font-size: 2.5rem;
+  animation: walkCycle 0.8s steps(4) infinite;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.transport-icon {
   position: absolute;
   font-size: 2rem;
-  animation: moveRight 3s ease-in-out infinite;
-  animation-delay: 0.2s;
-  opacity: 0.8;
+  top: -15px;
+  right: -20px;
+  animation: transportMove 4s ease-in-out infinite;
 }
 
-.travel-plane {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.bus-travel {
+  animation: followCurvedPath 4s ease-in-out infinite;
 }
 
-.plane-icon {
-  font-size: 3rem;
-  animation: flyAcross 4s ease-in-out infinite;
-  position: relative;
+.plane-travel {
+  animation: followCurvedPathFly 5s ease-in-out infinite;
 }
 
-.travel-car {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.car-travel {
+  animation: followCurvedPathDrive 4.5s ease-in-out infinite;
 }
 
-.car-icon {
-  font-size: 3rem;
-  animation: driveAcross 3.5s ease-in-out infinite;
-  position: relative;
-}
-
-.travel-walk {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.walking-person {
-  font-size: 2.5rem;
-  animation: walkAlong 4s ease-in-out infinite;
-  position: relative;
-  z-index: 2;
-}
-
-.walking-trail {
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    #6366f1 0px,
-    #6366f1 10px,
-    transparent 10px,
-    transparent 20px
-  );
-  top: 50%;
-  transform: translateY(-50%);
+.walk-travel {
+  animation: followCurvedPathWalk 5s ease-in-out infinite;
 }
 
 .travel-route {
@@ -979,65 +1028,194 @@ section {
   font-weight: 600;
   color: var(--primary-color);
   font-size: 1.1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
-@keyframes moveRight {
-  0% {
-    transform: translateX(-100%);
+/* Animations */
+@keyframes gentleBounce {
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100%);
+    transform: translateY(-10px);
   }
 }
 
-@keyframes flyAcross {
-  0% {
-    transform: translateX(-150%) translateY(-20px) rotate(-10deg);
-    opacity: 0;
-  }
-  20% {
+@keyframes kissPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
     opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(150%) translateY(20px) rotate(10deg);
-    opacity: 0;
-  }
-}
-
-@keyframes driveAcross {
-  0% {
-    transform: translateX(-100%) scaleX(1);
   }
   50% {
-    transform: translateX(0) scaleX(1);
-  }
-  100% {
-    transform: translateX(100%) scaleX(-1);
+    transform: scale(1.3) rotate(15deg);
+    opacity: 0.8;
   }
 }
 
-@keyframes walkAlong {
+@keyframes trailGlow {
+  0%, 100% {
+    stroke-opacity: 0.3;
+  }
+  50% {
+    stroke-opacity: 0.6;
+  }
+}
+
+@keyframes footprintFade {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes followCurvedPath {
   0% {
-    transform: translateX(-100%);
+    left: 5%;
+    top: 70%;
+    transform: translate(-50%, -50%) rotate(-10deg);
   }
   25% {
-    transform: translateX(-50%) translateY(-5px);
+    left: 25%;
+    top: 45%;
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   50% {
-    transform: translateX(0);
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%) rotate(5deg);
   }
   75% {
-    transform: translateX(50%) translateY(-5px);
+    left: 75%;
+    top: 38%;
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    transform: translateX(100%);
+    left: 95%;
+    top: 42%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+}
+
+@keyframes followCurvedPathFly {
+  0% {
+    left: 5%;
+    top: 70%;
+    transform: translate(-50%, -50%) rotate(-15deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    left: 25%;
+    top: 40%;
+    transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+  }
+  50% {
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%) rotate(5deg) scale(1.1);
+  }
+  75% {
+    left: 75%;
+    top: 35%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 95%;
+    top: 40%;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes followCurvedPathDrive {
+  0% {
+    left: 5%;
+    top: 70%;
+    transform: translate(-50%, -50%) rotate(-10deg) scaleX(1);
+  }
+  25% {
+    left: 25%;
+    top: 45%;
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(1);
+  }
+  50% {
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%) rotate(5deg) scaleX(1);
+  }
+  75% {
+    left: 75%;
+    top: 38%;
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(-1);
+  }
+  100% {
+    left: 95%;
+    top: 42%;
+    transform: translate(-50%, -50%) rotate(-5deg) scaleX(-1);
+  }
+}
+
+@keyframes followCurvedPathWalk {
+  0% {
+    left: 5%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateY(-3px);
+  }
+  50% {
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%) translateY(-5px);
+  }
+  75% {
+    left: 75%;
+    top: 45%;
+    transform: translate(-50%, -50%) translateY(-3px);
+  }
+  100% {
+    left: 95%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes walkCycle {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes transportMove {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, -5px);
   }
 }
 

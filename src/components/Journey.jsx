@@ -87,8 +87,8 @@ const Journey = () => {
       id: 8,
       year: 'June 2007',
       location: 'Toronto, Canada',
-      title: 'Temporary Move to Toronto',
-      description: 'Moved to Toronto to allow time for husband to settle in New Jersey, preparing for our journey together.',
+      title: 'Being with Family in Toronto',
+      description: 'Moved to Toronto to be with family while allowing time for husband to settle in New Jersey, preparing for our journey together.',
       icon: FaPlane,
       type: 'travel',
       country: 'Canada',
@@ -266,32 +266,66 @@ const Journey = () => {
                   {/* Travel Animation between locations */}
                   {showTravelAnimation && (
                     <div className={`travel-animation ${isActive ? 'active' : ''}`}>
-                      <div className="travel-path">
+                      {/* Goodbye scene for husband's move */}
+                      {prevItem.location.includes('Pune') && item.location.includes('New Jersey') && item.title.includes('Husband') && (
+                        <div className="goodbye-scene">
+                          <div className="goodbye-characters">
+                            <div className="woman-character">👩</div>
+                            <div className="kiss-animation">💋</div>
+                            <div className="man-character">👨</div>
+                          </div>
+                          <div className="goodbye-text">Saying goodbye as husband moves to USA</div>
+                        </div>
+                      )}
+                      
+                      {/* Curved travel path with animated woman */}
+                      <div className="travel-path-curved">
+                        <svg className="travel-trail-svg" viewBox="0 0 400 100" preserveAspectRatio="none">
+                          <path
+                            className="trail-path"
+                            d="M 20 80 Q 100 20, 200 30 T 380 40"
+                            fill="none"
+                            stroke="rgba(99, 102, 241, 0.3)"
+                            strokeWidth="3"
+                            strokeDasharray="5,5"
+                          />
+                        </svg>
+                        
+                        {/* Footprints along the path */}
+                        <div className="footprints">
+                          <div className="footprint">👣</div>
+                          <div className="footprint">👣</div>
+                          <div className="footprint">👣</div>
+                          <div className="footprint">👣</div>
+                          <div className="footprint">👣</div>
+                        </div>
+
+                        {/* Animated woman following the path */}
                         {prevItem.location.includes('Mumbai') && item.location.includes('Pune') && (
-                          <div className="travel-bus">
-                            <div className="bus-icon">🚌</div>
-                            <div className="travel-person">🚶‍♀️</div>
+                          <div className="traveling-woman bus-travel">
+                            <div className="woman-walking">🚶‍♀️</div>
+                            <div className="transport-icon">🚌</div>
                           </div>
                         )}
                         {prevItem.location.includes('Pune') && item.location.includes('Toronto') && (
-                          <div className="travel-plane">
-                            <div className="plane-icon">✈️</div>
-                            <div className="travel-person">👩</div>
+                          <div className="traveling-woman plane-travel">
+                            <div className="woman-walking">👩</div>
+                            <div className="transport-icon">✈️</div>
                           </div>
                         )}
                         {prevItem.location.includes('Toronto') && item.location.includes('New Jersey') && (
-                          <div className="travel-car">
-                            <div className="car-icon">🚗</div>
-                            <div className="travel-person">👩</div>
+                          <div className="traveling-woman car-travel">
+                            <div className="woman-walking">👩</div>
+                            <div className="transport-icon">🚗</div>
                           </div>
                         )}
-                        {prevItem.country !== item.country && !item.location.includes('Pune') && !item.location.includes('Toronto') && (
-                          <div className="travel-walk">
-                            <div className="walking-person">🚶‍♀️</div>
-                            <div className="walking-trail"></div>
+                        {prevItem.country !== item.country && !item.location.includes('Pune') && !item.location.includes('Toronto') && !item.title.includes('Husband') && (
+                          <div className="traveling-woman walk-travel">
+                            <div className="woman-walking">🚶‍♀️</div>
                           </div>
                         )}
                       </div>
+                      
                       <div className="travel-route">
                         {prevItem.location} → {item.location}
                       </div>
