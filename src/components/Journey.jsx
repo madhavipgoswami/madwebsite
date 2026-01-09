@@ -448,6 +448,7 @@ const Journey = () => {
                     )}
                   </div>
                 </div>
+                </>
               )
             })}
           </div>
