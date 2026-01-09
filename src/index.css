@@ -297,14 +297,14 @@ body {
 
 .hero-avatar-bg {
   position: absolute;
-  top: 60px;
-  right: -40px;
-  width: 480px;
-  height: 580px;
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-  border-radius: 30px;
+  top: 80px;
+  right: -30px;
+  width: 420px;
+  height: 520px;
+  background: linear-gradient(135deg, rgba(226, 232, 240, 0.6) 0%, rgba(203, 213, 225, 0.5) 100%);
+  border-radius: 25px;
   z-index: 0;
-  opacity: 0.95;
+  opacity: 0.7;
 }
 
 .hero-avatar {
@@ -317,10 +317,10 @@ body {
   justify-content: center;
   border: none;
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1;
-  padding: 8px;
+  padding: 10px;
 }
 
 .hero-avatar img {
@@ -342,39 +342,39 @@ body {
 
 .decorative-icon {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   color: var(--accent-color);
-  opacity: 0.6;
-  animation: float 3s ease-in-out infinite;
+  opacity: 0.4;
+  animation: float 4s ease-in-out infinite;
 }
 
 .decorative-icon-1 {
-  top: 10%;
-  right: -20px;
+  top: 15%;
+  right: 10px;
   animation-delay: 0s;
 }
 
 .decorative-icon-2 {
-  bottom: 20%;
-  right: -30px;
-  animation-delay: 1s;
+  bottom: 25%;
+  right: 5px;
+  animation-delay: 1.5s;
 }
 
 .decorative-icon-3 {
-  top: 60%;
-  left: -20px;
-  animation-delay: 2s;
+  top: 55%;
+  left: 10px;
+  animation-delay: 3s;
 }
 
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.6;
+    opacity: 0.4;
   }
   50% {
-    transform: translateY(-15px) rotate(5deg);
-    opacity: 0.8;
+    transform: translateY(-10px) rotate(3deg);
+    opacity: 0.6;
   }
 }
 
