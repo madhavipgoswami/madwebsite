@@ -1682,19 +1682,11 @@ section {
     margin: 0 auto;
   }
 
-  .hero-avatar-bg {
-    display: none;
-  }
-
   .hero-avatar {
     width: 300px;
     height: 400px;
     margin: 0 auto;
     padding: 6px;
-  }
-
-  .hero-decorative-elements {
-    display: none;
   }
 
   .about-stats {
