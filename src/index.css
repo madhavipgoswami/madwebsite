@@ -297,14 +297,14 @@ body {
 
 .hero-avatar-bg {
   position: absolute;
-  top: 80px;
-  right: -30px;
-  width: 420px;
-  height: 520px;
-  background: linear-gradient(135deg, rgba(226, 232, 240, 0.6) 0%, rgba(203, 213, 225, 0.5) 100%);
+  top: 90px;
+  right: -20px;
+  width: 380px;
+  height: 480px;
+  background: linear-gradient(135deg, rgba(226, 232, 240, 0.3) 0%, rgba(203, 213, 225, 0.2) 100%);
   border-radius: 25px;
   z-index: 0;
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .hero-avatar {
@@ -342,39 +342,39 @@ body {
 
 .decorative-icon {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   color: var(--accent-color);
-  opacity: 0.4;
-  animation: float 4s ease-in-out infinite;
+  opacity: 0.25;
+  animation: float 5s ease-in-out infinite;
 }
 
 .decorative-icon-1 {
-  top: 15%;
-  right: 10px;
+  top: 20%;
+  right: 20px;
   animation-delay: 0s;
 }
 
 .decorative-icon-2 {
-  bottom: 25%;
-  right: 5px;
-  animation-delay: 1.5s;
+  bottom: 30%;
+  right: 15px;
+  animation-delay: 2s;
 }
 
 .decorative-icon-3 {
-  top: 55%;
-  left: 10px;
-  animation-delay: 3s;
+  top: 50%;
+  left: 20px;
+  animation-delay: 4s;
 }
 
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.4;
+    opacity: 0.25;
   }
   50% {
-    transform: translateY(-10px) rotate(3deg);
-    opacity: 0.6;
+    transform: translateY(-8px) rotate(2deg);
+    opacity: 0.35;
   }
 }
 
