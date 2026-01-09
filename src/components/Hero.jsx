@@ -61,7 +61,6 @@ const Hero = () => {
         </div>
         <div className="hero-image">
           <div className="hero-image-wrapper">
-            <div className="hero-avatar-bg"></div>
             <div className="hero-avatar">
               <img 
                 src="/images/madhavi-photo.jpg" 
@@ -78,20 +77,6 @@ const Hero = () => {
                   <path d="M25 75 Q25 60 50 60 Q75 60 75 75" stroke="currentColor" strokeWidth="3" fill="none" opacity="0.3"/>
                 </svg>
               </div>
-            </div>
-            <div className="hero-decorative-elements">
-              <svg className="decorative-icon decorative-icon-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-              <svg className="decorative-icon decorative-icon-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-              </svg>
-              <svg className="decorative-icon decorative-icon-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
             </div>
           </div>
         </div>
