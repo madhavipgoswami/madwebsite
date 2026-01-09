@@ -5,18 +5,21 @@
 }
 
 :root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary-color: #8b5cf6;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
+  --primary-color: #1e3a8a;
+  --primary-dark: #1e40af;
+  --secondary-color: #3b82f6;
+  --accent-color: #60a5fa;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-dark: #111827;
-  --border-color: #e5e7eb;
+  --bg-secondary: #f8fafc;
+  --bg-dark: #0f172a;
+  --bg-hero: #1e293b;
+  --border-color: #e2e8f0;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
 
@@ -43,11 +46,11 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: var(--transition);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .navbar.scrolled {
@@ -66,13 +69,13 @@ body {
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: white;
   cursor: pointer;
   transition: var(--transition);
 }
 
 .nav-logo:hover {
-  color: var(--primary-dark);
+  color: var(--accent-color);
 }
 
 .nav-menu {
@@ -83,7 +86,7 @@ body {
 
 .nav-menu a {
   text-decoration: none;
-  color: var(--text-primary);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
   transition: var(--transition);
   position: relative;
@@ -96,7 +99,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary-color);
+  background: var(--accent-color);
   transition: var(--transition);
 }
 
@@ -107,7 +110,7 @@ body {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-  color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 .hamburger {
@@ -120,7 +123,7 @@ body {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: var(--text-primary);
+  background: white;
   transition: var(--transition);
   border-radius: 3px;
 }
@@ -184,7 +187,7 @@ body {
 }
 
 .highlight {
-  color: #fbbf24;
+  color: #60a5fa;
 }
 
 .hero-subtitle {
@@ -194,7 +197,7 @@ body {
 }
 
 .typing-text {
-  color: #fbbf24;
+  color: #60a5fa;
   font-weight: 600;
 }
 
@@ -224,11 +227,14 @@ body {
 }
 
 .btn-primary {
-  background: white;
-  color: var(--primary-color);
+  background: var(--secondary-color);
+  color: white;
+  border: 2px solid var(--secondary-color);
 }
 
 .btn-primary:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -241,7 +247,8 @@ body {
 
 .btn-secondary:hover {
   background: white;
-  color: var(--primary-color);
+  color: var(--bg-hero);
+  border-color: white;
 }
 
 .hero-image {
@@ -252,21 +259,35 @@ body {
 }
 
 .hero-avatar {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  width: 400px;
+  height: 500px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .avatar-placeholder {
-  width: 80%;
-  height: 80%;
-  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
 }
 
 .scroll-indicator {
@@ -1579,7 +1600,7 @@ section {
     left: -100%;
     top: 70px;
     flex-direction: column;
-    background: white;
+    background: var(--bg-hero);
     width: 100%;
     text-align: center;
     transition: var(--transition);

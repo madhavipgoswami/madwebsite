@@ -64,7 +64,15 @@ const Hero = () => {
         </div>
         <div className="hero-image">
           <div className="hero-avatar">
-            <div className="avatar-placeholder">
+            <img 
+              src="/images/madhavi-photo.jpg" 
+              alt="Madhavi Goswami, CFA"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div className="avatar-placeholder" style={{ display: 'none' }}>
               <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="50" fill="currentColor" opacity="0.1"/>
                 <circle cx="50" cy="35" r="15" fill="currentColor" opacity="0.3"/>
