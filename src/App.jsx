@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'journey', 'skills', 'projects', 'blog', 'contact']
+      const sections = ['home', 'about', 'skills', 'projects', 'journey', 'blog', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -39,9 +39,9 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Journey />
         <Skills />
         <Projects />
+        <Journey />
         <Blog />
         <Contact />
       </main>
