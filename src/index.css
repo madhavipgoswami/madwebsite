@@ -1474,6 +1474,194 @@ section {
   border-radius: 8px;
 }
 
+/* Impact Section */
+.impact {
+  background: var(--bg-secondary);
+}
+
+.impact-intro {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.impact-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.impact-section {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.impact-section:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.impact-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.impact-section-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.impact-section-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+.impact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.impact-item {
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border-left: 4px solid var(--secondary-color);
+  transition: var(--transition);
+}
+
+.impact-item:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+.impact-item-featured {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-left-color: var(--primary-color);
+}
+
+.impact-item-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.impact-item-title {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.impact-item-org {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.impact-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.impact-item-date {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.impact-item-focus {
+  color: var(--secondary-color);
+  font-weight: 600;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+.impact-item-description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.impact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.impact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.impact-list-icon {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.impact-mission {
+  background: rgba(30, 58, 138, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border-left: 4px solid var(--primary-color);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.impact-mission strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.impact-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.impact-cta-buttons .btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+.impact-cta-buttons .btn svg {
+  font-size: 1rem;
+}
+
 /* Contact Section */
 .contact {
   background: var(--bg-primary);
@@ -1727,6 +1915,46 @@ section {
 
   .timeline-line {
     left: 20px;
+  }
+
+  .impact-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .impact-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .impact-section-icon {
+    font-size: 2rem;
+  }
+
+  .impact-section-title {
+    font-size: 1.75rem;
+  }
+
+  .impact-item {
+    padding: 1.5rem;
+  }
+
+  .impact-item-title {
+    font-size: 1.2rem;
+  }
+
+  .impact-item-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .impact-cta-buttons {
+    flex-direction: column;
+  }
+
+  .impact-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .contact-content {
