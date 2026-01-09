@@ -265,7 +265,7 @@ const Journey = () => {
                 <>
                   {/* Travel Animation between locations */}
                   {showTravelAnimation && (
-                    <div className={`travel-animation ${isActive ? 'active' : ''}`}>
+                    <div className="travel-animation active">
                       {/* Goodbye scene for husband's move */}
                       {prevItem.location.includes('Pune') && item.location.includes('New Jersey') && item.title.includes('Husband') && (
                         <div className="goodbye-scene">

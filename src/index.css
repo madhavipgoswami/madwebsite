@@ -868,14 +868,10 @@ section {
   border-radius: 12px;
   position: relative;
   overflow: visible;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
-
-.travel-animation.active {
   opacity: 1;
   transform: translateY(0);
+  min-height: 200px;
+  border: 2px solid rgba(99, 102, 241, 0.2);
 }
 
 /* Goodbye Scene */
@@ -951,9 +947,10 @@ section {
 
 .footprint {
   position: absolute;
-  font-size: 1.5rem;
-  opacity: 0.4;
+  font-size: 2rem;
+  opacity: 0.6;
   animation: footprintFade 3s ease-in-out infinite;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .footprint:nth-child(1) {
@@ -990,7 +987,10 @@ section {
 .traveling-girl {
   position: absolute;
   z-index: 10;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .girl-character {
@@ -1076,12 +1076,12 @@ section {
 
 @keyframes footprintFade {
   0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.8);
+    opacity: 0.4;
+    transform: scale(0.9);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(1);
+    opacity: 0.8;
+    transform: scale(1.1);
   }
 }
 
